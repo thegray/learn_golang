@@ -4,6 +4,8 @@ import "os"
 import "strings"
 import "fmt"
 
+// Environment variables are a universal mechanism for conveying configuration information to Unix programs.
+
 func main() {
 	os.Setenv("FOO", "1")
 	fmt.Println("FOO:", os.Getenv("FOO"))

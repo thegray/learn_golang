@@ -3,10 +3,13 @@ package main
 import "errors"
 import "fmt"
 
+// By convention, errors are the last return value and have type error, a built-in interface.
 func f1(arg int) (int, error) {
 	if arg == 42 {
+		// errors.New constructs a basic error value with the given error message.
 		return -1, errors.New("cant work with 42")
 	}
+	// A nil value in the error position indicates that there was no error.
 	return arg + 3, nil
 }
 
@@ -42,6 +45,8 @@ func main() {
 		}
 	}
 
+	// e is struct of argError
+	// check if e string is not null, if not null the error has been thrown
 	_, e := f2(42)
 	if ae, ok := e.(*argError); ok {
 		fmt.Println(ae.arg)
@@ -52,11 +57,13 @@ func main() {
 	}
 
 	_, e2 := f2(15)
+	// e2 is struct of argError
+	// check if e2 string is not null, if not null the error has been thrown
 	if ae, ok := e2.(*argError); ok {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.prob)
-		fmt.Println("ok :", ok)
+		fmt.Println("what is ok :", ok)
 	} else {
-		fmt.Println("ok :", ok)
+		fmt.Println("what is ok :", ok)
 	}
 }

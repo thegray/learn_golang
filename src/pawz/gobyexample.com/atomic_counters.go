@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	var ops uint64 = 0
-
+	var ops uint64
+	
 	for i := 0; i < 50; i++ {
 		go func() {
 			for {

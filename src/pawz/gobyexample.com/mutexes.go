@@ -13,8 +13,8 @@ func main() {
 
 	var mutex = &sync.Mutex{}
 
-	var readOps uint64 = 0
-	var writeOps uint64 = 0
+	var readOps uint64
+	var writeOps uint64
 
 	for r := 0; r < 100; r++ {
 		go func() {
